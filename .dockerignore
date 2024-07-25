@@ -1,0 +1,26 @@
+# Ignora las dependencias instaladas
+node_modules
+
+# Ignora los archivos de construcción y salida
+dist
+.nuxt
+output
+
+# Ignora archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Ignora logs y archivos temporales
+*.log
+*.tmp
+*.cache
+
+# Ignora archivos y carpetas específicas de editores
+.idea
+.vscode
+*.swp
+
+# Ignora archivos y carpetas del sistema
+.DS_Store
+Thumbs.db
