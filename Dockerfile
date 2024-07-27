@@ -14,17 +14,11 @@ RUN yarn install
 # Copia todo el código fuente al contenedor
 COPY . .
 
-# Argumento para el entorno
-ARG NODE_ENV=development
-
-# Establece la variable de entorno
-ENV NODE_ENV=$NODE_ENV
-
 # Construye la aplicación solo en producción
-RUN if [ "$NODE_ENV" = "production" ]; then yarn build; fi
+RUN yarn build
 
 # Expone el puerto en el que correrá la aplicación
 EXPOSE 3000
 
 # Comando por defecto para ejecutar la aplicación
-CMD ["yarn", "dev"]
+CMD ["yarn", "build"]
