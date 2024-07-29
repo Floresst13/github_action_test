@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:3",
     "containerDefinitions": [
         {
             "name": "front_infra",
@@ -34,9 +34,10 @@
         }
     ],
     "family": "front_infra",
+    "taskRoleArn": "arn:aws:iam::730335612007:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::730335612007:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -51,6 +52,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -79,7 +83,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-07-29T16:32:21.189Z",
+    "registeredAt": "2024-07-29T19:02:31.551Z",
     "registeredBy": "arn:aws:iam::730335612007:root",
     "tags": []
 }
