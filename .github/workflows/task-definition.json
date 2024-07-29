@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:5",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:6",
     "containerDefinitions": [
         {
             "name": "front_infra",
-            "image": "730335612007.dkr.ecr.us-east-1.amazonaws.com/front_infra:f90f900-2024-07-29-20-41",
+            "image": "730335612007.dkr.ecr.us-east-1.amazonaws.com/front_infra:latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -35,7 +35,7 @@
     ],
     "family": "front_infra",
     "networkMode": "awsvpc",
-    "revision": 5,
+    "revision": 6,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -71,7 +71,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-07-29T21:02:58.380Z",
+    "registeredAt": "2024-07-29T23:08:29.560Z",
     "registeredBy": "arn:aws:iam::730335612007:root",
     "tags": []
 }
