@@ -66,7 +66,7 @@ npm run preview
 pnpm run preview
 
 # yarn
-yarn preview
+yarn preview e
 
 # bun
 bun run preview
