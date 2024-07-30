@@ -1,158 +1,74 @@
 {
-	"taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:9",
-	"containerDefinitions": [
-		{
-			"name": "front_infra",
-			"image": "730335612007.dkr.ecr.us-east-1.amazonaws.com/front_infra:latest",
-			"cpu": 0,
-			"portMappings": [
-				{
-					"name": "front_infra-80-tcp",
-					"containerPort": 80,
-					"hostPort": 80,
-					"protocol": "tcp",
-					"appProtocol": "http"
-				}
-			],
-			"essential": true,
-			"environment": [],
-			"environmentFiles": [],
-			"mountPoints": [],
-			"volumesFrom": [],
-			"ulimits": [],
-			"logConfiguration": {
-				"logDriver": "awslogs",
-				"options": {
-					"awslogs-group": "/ecs/front_infra",
-					"awslogs-create-group": "true",
-					"awslogs-region": "us-east-1",
-					"awslogs-stream-prefix": "ecs"
-				},
-				"secretOptions": []
-			},
-			"systemControls": []
-		}
-	],
-	"family": "front_infra",
-	"networkMode": "awsvpc",
-	"revision": 6,
-	"volumes": [],
-	"status": "ACTIVE",
-	"requiresAttributes": [
-		{
-			"name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-		},
-		{
-			"name": "com.amazonaws.ecs.capability.ecr-auth"
-		},
-		{
-			"name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-		},
-		{
-			"name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-		},
-		{
-			"name": "ecs.capability.task-eni"
-		},
-		{
-			"name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-		}
-	],
-	"placementConstraints": [],
-	"compatibilities": [
-		"EC2"
-	],
-	"requiresCompatibilities": [
-		"EC2"
-	],
-	"cpu": "256",
-	"memory": "512",
-	"runtimePlatform": {
-		"cpuArchitecture": "X86_64",
-		"operatingSystemFamily": "LINUX"
-	},
-	"registeredAt": "2024-07-29T23:08:29.560Z",
-	"registeredBy": "arn:aws:iam::730335612007:root",
-	"tags": [],
-	"Transform": "AWS::Serverless-2016-10-31",
-	"Resources": {
-		"StateMachine": {
-			"Type": "AWS::Serverless::StateMachine",
-			"Properties": {
-				"Definition": {
-					"StartAt": "LambdaTask",
-					"States": {
-						"LambdaTask": {
-							"Type": "Task",
-							"Resource": "arn:aws:states:::lambda:invoke",
-							"Parameters": {
-								"Payload.$": "$",
-								"FunctionName": "${LambdaFunction1}"
-							},
-							"End": true
-						}
-					}
-				},
-				"Logging": {
-					"Level": "ALL",
-					"IncludeExecutionData": true,
-					"Destinations": [
-						{
-							"CloudWatchLogsLogGroup": {
-								"LogGroupArn": {
-									"Fn::GetAtt": [
-										"StateMachineLogGroup",
-										"Arn"
-									]
-								}
-							}
-						}
-					]
-				},
-				"Policies": [
-					"AWSXrayWriteOnlyAccess",
-					{
-						"Statement": [
-							{
-								"Effect": "Allow",
-								"Action": [
-									"logs:CreateLogDelivery",
-									"logs:GetLogDelivery",
-									"logs:UpdateLogDelivery",
-									"logs:DeleteLogDelivery",
-									"logs:ListLogDeliveries",
-									"logs:PutResourcePolicy",
-									"logs:DescribeResourcePolicies",
-									"logs:DescribeLogGroups"
-								],
-								"Resource": "*"
-							}
-						]
-					}
-				],
-				"Tracing": {
-					"Enabled": true
-				},
-				"Type": "STANDARD",
-				"DefinitionSubstitutions": {
-					"LambdaFunction1": {
-						"Ref": "AWS::NoValue"
-					}
-				}
-			}
-		},
-		"StateMachineLogGroup": {
-			"Type": "AWS::Logs::LogGroup",
-			"Properties": {
-				"LogGroupName": {
-					"Fn::Sub": [
-						"/aws/vendedlogs/states/${AWS::StackName}-${ResourceId}-Logs",
-						{
-							"ResourceId": "StateMachine"
-						}
-					]
-				}
-			}
-		}
-	}
+ "taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:9",
+ "containerDefinitions": [
+     {
+         "name": "front_infra",
+         "image": "730335612007.dkr.ecr.us-east-1.amazonaws.com/front_infra:0dad8936e727203cee9483dceba2c2df97661eab",
+         "cpu": 0,
+         "portMappings": [
+             {
+                 "name": "front_infra-80-tcp",
+                 "containerPort": 80,
+                 "hostPort": 80,
+                 "protocol": "tcp",
+                 "appProtocol": "http"
+             }
+         ],
+         "essential": true,
+         "environment": [],
+         "mountPoints": [],
+         "volumesFrom": [],
+         "logConfiguration": {
+             "logDriver": "awslogs",
+             "options": {
+                 "awslogs-group": "/ecs/front_infra",
+                 "awslogs-create-group": "true",
+                 "awslogs-region": "us-east-1",
+                 "awslogs-stream-prefix": "ecs"
+             }
+         },
+         "systemControls": []
+     }
+ ],
+ "family": "front_infra",
+ "networkMode": "awsvpc",
+ "revision": 9,
+ "volumes": [],
+ "status": "ACTIVE",
+ "requiresAttributes": [
+     {
+         "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+     },
+     {
+         "name": "com.amazonaws.ecs.capability.ecr-auth"
+     },
+     {
+         "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+     },
+     {
+         "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+     },
+     {
+         "name": "ecs.capability.task-eni"
+     },
+     {
+         "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+     }
+ ],
+ "placementConstraints": [],
+ "compatibilities": [
+     "EC2"
+ ],
+ "requiresCompatibilities": [
+     "EC2"
+ ],
+ "cpu": "256",
+ "memory": "512",
+ "runtimePlatform": {
+     "cpuArchitecture": "X86_64",
+     "operatingSystemFamily": "LINUX"
+ },
+ "registeredAt": "2024-07-30T00:33:16.767Z",
+ "registeredBy": "arn:aws:iam::730335612007:user/adminecr",
+ "tags": []
 }
