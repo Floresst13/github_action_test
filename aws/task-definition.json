@@ -1,5 +1,5 @@
 {
-	"taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:6",
+	"taskDefinitionArn": "arn:aws:ecs:us-east-1:730335612007:task-definition/front_infra:9",
 	"containerDefinitions": [
 		{
 			"name": "front_infra",
